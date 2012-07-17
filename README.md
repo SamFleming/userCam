@@ -6,6 +6,11 @@ jQuery Webcam Plugin
 
 Uses the "working draft" of the getUserMedia/Stream API to stream a users webcam to a `<video>` element.
 
+
+Demo
+----
+You can checkout a simple demo here: [userCam example](http://samfleming.me/examples/userCam/).
+
 Usage
 -----
 This should work with most jQuery versions however it has only been tested with 1.7.2.
@@ -44,7 +49,7 @@ error|function|An error occurs
 
 ### Methods
 
-You can access the userCam methods by accessing the container elements `data('userCam')`, as follows:
+You can access the userCam methods by accessing the container element `data('userCam')`, as follows:
 
 	<script>
 		var webcamContainer = $('.webcamContainer');
@@ -61,3 +66,7 @@ You can access the userCam methods by accessing the container elements `data('us
 		var pngDataUri = webcamContainer.data('userCam').getStill();
 	</script>
 	
+
+Browser Support
+---------------
+You can view the [current browser support here](http://caniuse.com/#feat=stream)
