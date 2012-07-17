@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-gb">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>userCam Demo</title>
+
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+
+        <div id="camera-container"></div>
+
+        <button id="snapshot">Take a picture</button>
+
+        <script src="js/jquery-1.7.2.js"></script>
+        <script src="js/jquery.userCam.min.js"></script>
+        <script>
+            $(function (){
+                // Where are we going to be putting the webcam stream?
+                var cameraContainer = $('#camera-container');
+
+                // Initialize the jQuery plugin
+                cameraContainer.userCam({
+                    /* Called when the camera starts streaming */
+                    start: function (event, video) { }
+                });
+
+                // When our snapshot button is clicked, take a Snapshot!
+                $('#snapshot').on('click', function (e) {
+                    // Get the userCam object from the cameraContainer data
+                    var dataURI = cameraContainer.data('userCam').getStill();
+
+                    // Create a new image with a src of the dataUri and append to the body
+                    $('<img>', {
+                        src: dataURI,
+                        alt: 'Image from webcam at ' + new Date()
+                    }).appendTo(document.body);
+                });
+
+            });
+        </script>
+    </body>
+</html>
